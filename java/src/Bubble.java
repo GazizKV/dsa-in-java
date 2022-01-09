@@ -2,32 +2,18 @@
 //  date:    09.01.2022
 //  project: dsa-in-java
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.Calendar;
 
 public class Bubble {
-    public static void main(String[] args) {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Please enter space separated numbers for sorting");
-        String readLine = null;
-        try {
-            readLine = bufferedReader.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        assert readLine != null;
-        String[] array = readLine.split(" ");
-        int[] integers = new int[array.length];
-        for (int i = 0; i < array.length; i++) {
-            integers[i] = Integer.parseInt(array[i]);
-        }
 
-        System.out.println("Non sorted entered array " + Arrays.toString(integers));
+    public static int[] sort(int[] integers) {
+        System.out.println("Non sorted entered array "+Arrays.toString(integers));
+        Calendar timeStart = Calendar.getInstance();
         int num = Integer.MIN_VALUE;
         boolean isSorted = false;
-        while (!isSorted) {
+        while(!isSorted)
+        {
             isSorted = true;
             for (int i = 0; i < integers.length - 1; i++) {
                 if (integers[i] > integers[i + 1]) {
@@ -38,8 +24,9 @@ public class Bubble {
                 }
             }
         }
-
-        System.out.println("Sorted array " + Arrays.toString(integers));
-
+        Calendar timeEnd = Calendar.getInstance();
+        System.out.println("Sorted by bubble sort array "+Arrays.toString(integers));
+        System.out.println(new StringBuilder().append("Sorted by - ").append((timeEnd.getTimeInMillis() - timeStart.getTimeInMillis())).append(" millis").toString());
+        return integers;
     }
 }
