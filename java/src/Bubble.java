@@ -6,11 +6,10 @@ import java.util.Arrays;
 import java.util.Calendar;
 
 public class Bubble {
-
-    public static int[] sort(int[] integers) {
+    public static void sort(int[] integers) {
         System.out.println("Non sorted entered array "+Arrays.toString(integers));
         Calendar timeStart = Calendar.getInstance();
-        int num = Integer.MIN_VALUE;
+        int num;
         boolean isSorted = false;
         while(!isSorted)
         {
@@ -26,7 +25,6 @@ public class Bubble {
         }
         Calendar timeEnd = Calendar.getInstance();
         System.out.println("Sorted by bubble sort array "+Arrays.toString(integers));
-        System.out.println(new StringBuilder().append("Sorted by - ").append((timeEnd.getTimeInMillis() - timeStart.getTimeInMillis())).append(" millis").toString());
-        return integers;
+        System.out.println("Sorted by - " + (timeEnd.getTimeInMillis() - timeStart.getTimeInMillis()) + " millis");
     }
 }

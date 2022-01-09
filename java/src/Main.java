@@ -5,6 +5,9 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -18,12 +21,19 @@ public class Main {
             e.printStackTrace();
         }
         assert readLine != null;
-        String[] array = readLine.split(" ");
-        int[] integers = new int[array.length];
-        for (int i = 0; i < array.length; i++) {
-            integers[i] = Integer.parseInt(array[i]);
-        }
+        List<Integer> list = Arrays.stream(readLine.split(" ")).map(Integer::parseInt).toList();
 
-        Bubble.sort(integers);
+
+        Bubble.sort(getArrayFromList(list));
+
+        ShakerSorting.sort(getArrayFromList(list));
+    }
+
+    public static int[] getArrayFromList(List list) {
+        int[] integers = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            integers[i] = (int) list.get(i);
+        }
+        return integers;
     }
 }
