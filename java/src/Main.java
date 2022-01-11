@@ -2,6 +2,7 @@
 //  date:    09.01.2022
 //  project: dsa-in-java
 
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -12,6 +13,8 @@ public class Main {
     public static void main(String[] args) {
 
         int LengthArrayForSorting = 10000;
+
+        Insertion.sort(RandomArrayGenerator.generate(LengthArrayForSorting));
 
         Comb.sort(RandomArrayGenerator.generate(LengthArrayForSorting));
 
