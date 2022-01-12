@@ -14,6 +14,8 @@ public class Main {
 
         int LengthArrayForSorting = 10000;
 
+        Selection.sort(RandomArrayGenerator.generate(LengthArrayForSorting));
+
         Insertion.sort(RandomArrayGenerator.generate(LengthArrayForSorting));
 
         Comb.sort(RandomArrayGenerator.generate(LengthArrayForSorting));
@@ -22,5 +24,4 @@ public class Main {
 
         Bubble.sort(RandomArrayGenerator.generate(LengthArrayForSorting));
     }
-
 }
