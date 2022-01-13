@@ -2,7 +2,6 @@
 //  date:    12.01.2022
 //  project: dsa-in-java
 
-import java.util.Arrays;
 import java.util.Calendar;
 
 public class Selection {
@@ -10,7 +9,7 @@ public class Selection {
     public static void sort(int[] integers) {
 
         // Printing name of sorting algorithm.
-        System.out.print("Selection      ");
+        System.out.print("Selection ");
 
         // Show array for sorting
         // System.out.println("Non sorted entered array "+Arrays.toString(integers));
@@ -22,7 +21,7 @@ public class Selection {
             // Finding next min value into array integers.
             int indexOfMinVlueInSubArray = Functions.minVal(integers, i, integers.length);
             // Swap values into integers array.
-            Functions.swap(integers, i, indexOfMinVlueInSubArray);
+            Functions.swapValues(integers, i, indexOfMinVlueInSubArray);
         }
 
         // Measure end time.

@@ -9,7 +9,7 @@ public class Bubble {
     public static void sort(int[] integers) {
 
         // Printing name of sorting algorithm.
-        System.out.print("Bubble  ");
+        System.out.print("Bubble    ");
 
         // Show array for sorting
         // System.out.println("Non sorted entered array "+Arrays.toString(integers));

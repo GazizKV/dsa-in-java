@@ -11,7 +11,7 @@ public class Insertion {
     public static void sort(int[] integers) {
 
         // Printing name of sorting algorithm.
-        System.out.print("Insertion  ");
+        System.out.print("Insertion ");
 
         boolean isSorted = false;
 

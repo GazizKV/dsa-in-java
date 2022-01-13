@@ -14,6 +14,8 @@ public class Main {
 
         int LengthArrayForSorting = 10000;
 
+        Quick.sort(RandomArrayGenerator.generate(LengthArrayForSorting));
+
         Selection.sort(RandomArrayGenerator.generate(LengthArrayForSorting));
 
         Insertion.sort(RandomArrayGenerator.generate(LengthArrayForSorting));

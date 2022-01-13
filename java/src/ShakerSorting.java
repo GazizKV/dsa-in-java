@@ -9,7 +9,7 @@ public class ShakerSorting {
     public static void sort(int[] integers) {
 
         // Printing name of sorting algorithm.
-        System.out.print("Shaker  ");
+        System.out.print("Shaker    ");
 
         // Show the non-sorted array
         // System.out.println("Non sorted entered array " + Arrays.toString(integers));
