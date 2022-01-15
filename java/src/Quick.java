@@ -33,7 +33,7 @@ public class Quick {
     }
 
     private static void quickSort(int[] array) {
-        if (array.length > 0) {
+        if (array.length > 1) {
             quickSortImpl(array, 0, array.length - 1);
         }
     }
@@ -44,7 +44,7 @@ public class Quick {
         System.out.print("Quick     ");
 
         // Print first 10 values from integers array
-         Functions.printArray(integers);
+        // Functions.printArray(integers);
 
         // Measure start time.
         Calendar timeStart = Calendar.getInstance();
@@ -56,7 +56,7 @@ public class Quick {
 
 
         // Print first 10 values from integers array
-         Functions.printArray(integers);
+        // Functions.printArray(integers);
 
         // Build stringBuilder for show the result
         String timeParamsForOutput = "Start time = " + timeStart.getTimeInMillis() + "  " +
@@ -64,8 +64,14 @@ public class Quick {
                 "Sorted by - " + (timeEnd.getTimeInMillis() - timeStart.getTimeInMillis()) + " millis";
 
         // Printing result of sorting time
-        System.out.println(timeParamsForOutput);
+        System.out.print(timeParamsForOutput);
 
+
+        if (Functions.checkSortedArray(integers)) {
+            System.out.println("Array sorted right");
+        } else {
+            System.out.println("Array sorted not right");
+        }
     }
 
 }

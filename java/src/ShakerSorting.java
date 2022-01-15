@@ -50,6 +50,12 @@ public class ShakerSorting {
         System.out.print("Ent time = " + timeEnd.getTimeInMillis() + "  ");
 
         // Show the sorting time.
-        System.out.println("Sorted by - " + (timeEnd.getTimeInMillis() - timeStart.getTimeInMillis()) + " millis");
+        System.out.print("Sorted by - " + (timeEnd.getTimeInMillis() - timeStart.getTimeInMillis()) + " millis");
+
+        if (Functions.checkSortedArray(integers)) {
+            System.out.println("Array sorted right");
+        } else {
+            System.out.println("Array sorted not right");
+        }
     }
 }
