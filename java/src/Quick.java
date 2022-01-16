@@ -43,7 +43,7 @@ public class Quick {
         // Printing name of sorting algorithm.
         System.out.print("Quick     ");
 
-        // Print first 10 values from integers array
+        // Print integers array
         // Functions.printArray(integers);
 
         // Measure start time.
@@ -55,7 +55,7 @@ public class Quick {
         Calendar timeEnd = Calendar.getInstance();
 
 
-        // Print first 10 values from integers array
+        // Print integers array
         // Functions.printArray(integers);
 
         // Build stringBuilder for show the result

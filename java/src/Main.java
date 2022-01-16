@@ -7,6 +7,8 @@ public class Main {
 
         int LengthArrayForSorting = 10000;
 
+        Merge.sort(Functions.generate(LengthArrayForSorting));
+
         Quick.sort(Functions.generate(LengthArrayForSorting));
 
         Selection.sort(Functions.generate(LengthArrayForSorting));

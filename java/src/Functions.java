@@ -4,6 +4,7 @@
 //  date:    12.01.2022
 //  project: dsa-in-java
 
+import java.util.Calendar;
 import java.util.Random;
 
 public class Functions {
@@ -65,5 +66,28 @@ public class Functions {
             randomIntegersArray[i] = random.nextInt();
         }
         return randomIntegersArray;
+    }
+
+    public static void printResult(String name, int[] integers, Calendar startTime, Calendar endTime) {
+
+        StringBuilder timeParamsForOutput = new StringBuilder();
+        timeParamsForOutput
+                .append(name)
+                .append("   Start time = ")
+                .append(startTime.getTimeInMillis())
+                .append("  ")
+                .append("Ent time = ")
+                .append(endTime.getTimeInMillis())
+                .append("  ")
+                .append("Sorted by - ")
+                .append((endTime.getTimeInMillis() - startTime.getTimeInMillis()))
+                .append(" millis");
+
+        if (Functions.checkSortedArray(integers)) {
+            timeParamsForOutput.append("Array sorted right");
+        } else {
+            timeParamsForOutput.append("Array sorted not right");
+        }
+        System.out.println(timeParamsForOutput);
     }
 }
