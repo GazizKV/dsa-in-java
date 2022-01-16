@@ -6,39 +6,23 @@ import java.util.Calendar;
 
 public class Selection {
 
+    private static final String name = "Select";
+
     public static void sort(int[] integers) {
 
-        // Printing name of sorting algorithm.
-        System.out.print("Selection ");
-
-        // Show array for sorting
-        // System.out.println("Non sorted entered array "+Arrays.toString(integers));
-        // Measure start time.
-        Calendar timeStart = Calendar.getInstance();
+        Calendar timeStart = Calendar.getInstance(); // Measure start time.
 
         // Sort
         for (int i = 0; i < integers.length; i++) {
             // Finding next min value into array integers.
-            int indexOfMinVlueInSubArray = Functions.minVal(integers, i, integers.length);
+            int indexOfMinValueInSubArray = Functions.minVal(integers, i, integers.length);
             // Swap values into integers array.
-            Functions.swapValues(integers, i, indexOfMinVlueInSubArray);
+            Functions.swapValues(integers, i, indexOfMinValueInSubArray);
         }
 
-        // Measure end time.
-        Calendar timeEnd = Calendar.getInstance();
-        // Show the sorted array
-        // System.out.println("Sorted by insertion sort array "+Arrays.toString(integers));
-        // Show time
-        System.out.print("Start time = " + timeStart.getTimeInMillis() + "  ");
-        System.out.print("Ent time = " + timeEnd.getTimeInMillis() + "  ");
-        System.out.print("Sorted by - " + (timeEnd.getTimeInMillis() - timeStart.getTimeInMillis()) + " millis");
+        Calendar timeEnd = Calendar.getInstance(); // Measure end time.
 
-
-        if (Functions.checkSortedArray(integers)) {
-            System.out.println("Array sorted right");
-        } else {
-            System.out.println("Array sorted not right");
-        }
+        Functions.printResult(name, integers, timeStart, timeEnd);
     }
 
 }

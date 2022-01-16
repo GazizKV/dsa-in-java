@@ -52,7 +52,7 @@ public class Functions {
     public static boolean checkSortedArray(int[] array) {
         boolean result = true;
         for (int i = 1; i < array.length; i++) {
-            if(array[i - 1] > array[i]) {
+            if (array[i - 1] > array[i]) {
                 result = false;
                 break;
             }
@@ -68,25 +68,52 @@ public class Functions {
         return randomIntegersArray;
     }
 
+    private static String setToLength(String string, int newLength) {
+
+        if (newLength < 2 || newLength > 20) {
+            return "Length less or more than it must be";
+        }
+        if (string.length() < newLength) {
+            StringBuilder nameBuilder = new StringBuilder(string);
+            while (nameBuilder.length() < newLength) {
+                nameBuilder.append("_");
+            }
+            string = nameBuilder.toString();
+        } else if (string.length() > newLength) {
+            string = string.substring(0, newLength - 1);
+        }
+        return string;
+    }
+
     public static void printResult(String name, int[] integers, Calendar startTime, Calendar endTime) {
+
+        name = setToLength(name, 10);
+
+        long sortedTime = endTime.getTimeInMillis() - startTime.getTimeInMillis();
+
+        String time = setToLength(sortedTime + "", 10);
 
         StringBuilder timeParamsForOutput = new StringBuilder();
         timeParamsForOutput
                 .append(name)
-                .append("   Start time = ")
+                .append("Start = ")
                 .append(startTime.getTimeInMillis())
                 .append("  ")
-                .append("Ent time = ")
+                .append("End = ")
                 .append(endTime.getTimeInMillis())
                 .append("  ")
                 .append("Sorted by - ")
-                .append((endTime.getTimeInMillis() - startTime.getTimeInMillis()))
+                .append(time)
                 .append(" millis");
 
-        if (Functions.checkSortedArray(integers)) {
-            timeParamsForOutput.append("Array sorted right");
+        if (checkSortedArray(integers)) {
+            timeParamsForOutput
+                    .append("\t")
+                    .append("right");
         } else {
-            timeParamsForOutput.append("Array sorted not right");
+            timeParamsForOutput
+                    .append("\t")
+                    .append("wrong");
         }
         System.out.println(timeParamsForOutput);
     }

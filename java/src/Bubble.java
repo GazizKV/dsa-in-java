@@ -6,19 +6,15 @@ import java.util.Arrays;
 import java.util.Calendar;
 
 public class Bubble {
+
+    private static final String name = "Bubble";
+
     public static void sort(int[] integers) {
 
-        // Printing name of sorting algorithm.
-        System.out.print("Bubble    ");
-
-        // Show array for sorting
-        // System.out.println("Non sorted entered array "+Arrays.toString(integers));
-        // Measure start time.
-        Calendar timeStart = Calendar.getInstance();
+        Calendar timeStart = Calendar.getInstance(); // Measure start time.
         int num;
         boolean isSorted = false;
-        while(!isSorted)
-        {
+        while (!isSorted) {
             isSorted = true;
             for (int i = 0; i < integers.length - 1; i++) {
                 if (integers[i] > integers[i + 1]) {
@@ -29,13 +25,8 @@ public class Bubble {
                 }
             }
         }
-        // Measure end time.
-        Calendar timeEnd = Calendar.getInstance();
-        // Show the sorted array
-        //  System.out.println("Sorted by bubble sort array "+Arrays.toString(integers));
-        System.out.print("Start time = " + timeStart.getTimeInMillis() + "  ");
-        System.out.print("Ent time = " + timeEnd.getTimeInMillis() + "  ");
-        // Show time
-        System.out.println("Sorted by - " + (timeEnd.getTimeInMillis() - timeStart.getTimeInMillis()) + " millis");
+        Calendar timeEnd = Calendar.getInstance(); // Measure end time.
+
+        Functions.printResult(name, integers, timeStart, timeEnd);
     }
 }

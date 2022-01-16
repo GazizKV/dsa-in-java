@@ -17,7 +17,7 @@ public class Main {
 
         Comb.sort(Functions.generate(LengthArrayForSorting));
 
-        ShakerSorting.sort(Functions.generate(LengthArrayForSorting));
+        Shaker.sort(Functions.generate(LengthArrayForSorting));
 
         Bubble.sort(Functions.generate(LengthArrayForSorting));
     }

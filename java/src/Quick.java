@@ -8,6 +8,8 @@ import java.util.Calendar;
 
 public class Quick {
 
+    private static final String name = "Quick";
+
     private static int partition(int[] array, int leftValueIndex, int reeghtValueIndex) {
 
         int partitionValue = array[reeghtValueIndex];
@@ -40,38 +42,14 @@ public class Quick {
 
     public static void sort(int[] integers) {
 
-        // Printing name of sorting algorithm.
-        System.out.print("Quick     ");
-
-        // Print integers array
-        // Functions.printArray(integers);
-
-        // Measure start time.
-        Calendar timeStart = Calendar.getInstance();
+        Calendar timeStart = Calendar.getInstance(); // Measure start time.
 
         quickSort(integers);
 
-        // Measure end time.
-        Calendar timeEnd = Calendar.getInstance();
+        Calendar timeEnd = Calendar.getInstance(); // Measure end time.
 
+        Functions.printResult(name, integers, timeStart, timeEnd);
 
-        // Print integers array
-        // Functions.printArray(integers);
-
-        // Build stringBuilder for show the result
-        String timeParamsForOutput = "Start time = " + timeStart.getTimeInMillis() + "  " +
-                "Ent time = " + timeEnd.getTimeInMillis() + "  " +
-                "Sorted by - " + (timeEnd.getTimeInMillis() - timeStart.getTimeInMillis()) + " millis";
-
-        // Printing result of sorting time
-        System.out.print(timeParamsForOutput);
-
-
-        if (Functions.checkSortedArray(integers)) {
-            System.out.println("Array sorted right");
-        } else {
-            System.out.println("Array sorted not right");
-        }
     }
 
 }
