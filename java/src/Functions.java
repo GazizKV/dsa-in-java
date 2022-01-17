@@ -32,7 +32,7 @@ public class Functions {
 
     public static void printArray(int[] array) {
         int arrayLength = array.length;
-        if (array.length < 50) {
+        if (array.length < 51) {
             for (int j : array) {
                 System.out.print(j + " ");
             }

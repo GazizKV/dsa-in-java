@@ -26,16 +26,20 @@ public class Merge {
                 }
                 ++k;
             }
-            for (int i = leftIndex; i < rightIndex; i++) {
+
+            for (int i = leftIndex; i <= rightIndex; i++) {
                 integers[i] = arrayBuffer[i];
             }
+
         }
     }
 
     public static void sort(int[] integers) {
 
         if (integers.length > 1) {
+
             int[] bufferArray = new int[integers.length];
+
 
             Calendar timeStart = Calendar.getInstance(); // Measure start time.
 
@@ -44,6 +48,7 @@ public class Merge {
             Calendar timeEnd = Calendar.getInstance(); // Measure end time.
 
             Functions.printResult(name, integers, timeStart, timeEnd);
+
 
         } else {
             System.out.println("Array size is less than 2 or empty");
