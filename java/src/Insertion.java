@@ -18,7 +18,7 @@ public class Insertion {
         for (int i = 1; i < integers.length; i++) {
             int x = integers[i];
             int j = i;
-            while (j > 0 && integers[i] > x) {
+            while (j > 0 && integers[j - 1] > x) {
                 integers[i] = integers[i - 1];
                 --j;
             }
