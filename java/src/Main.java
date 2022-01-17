@@ -7,13 +7,10 @@ public class Main {
 
         int LengthArrayForSorting = 10000;
 
-
-
-/*
         int length = 100;
         int rangeFrom = 0;
         int rangeTo = 1000000;
-*/
+
 
 
         Merge.sort(Functions.generate(LengthArrayForSorting));

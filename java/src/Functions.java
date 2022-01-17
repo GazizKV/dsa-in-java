@@ -113,23 +113,17 @@ public class Functions {
         StringBuilder timeParamsForOutput = new StringBuilder();
         timeParamsForOutput
                 .append(name)
-                .append("Start = ")
-                .append(startTime.getTimeInMillis())
-                .append("  ")
-                .append("End = ")
-                .append(endTime.getTimeInMillis())
-                .append("  ")
+                .append(" ")
                 .append("Sorted by - ")
                 .append(time)
-                .append(" millis");
+                .append(" millis")
+                .append(" ");
 
         if (checkSortedArray(integers)) {
             timeParamsForOutput
-                    .append("\t")
                     .append("right");
         } else {
             timeParamsForOutput
-                    .append("\t")
                     .append("wrong");
         }
         System.out.println(timeParamsForOutput);
