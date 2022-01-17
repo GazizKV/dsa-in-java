@@ -27,7 +27,7 @@ public class Insertion {
 
         Calendar timeEnd = Calendar.getInstance(); // Measure end time.
 
-        Functions.printResult(name, integers, timeEnd, timeEnd);
+        Functions.printResult(name, integers, timeStart, timeEnd);
 
     }
 }

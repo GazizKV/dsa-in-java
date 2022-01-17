@@ -46,6 +46,7 @@ public class Functions {
             for (int i = 0; i < 10; i++) {
                 System.out.print(array[arrayLength - 1 - i] + " ");
             }
+            System.out.print("\n");
         }
     }
 
@@ -54,6 +55,7 @@ public class Functions {
         for (int i = 1; i < array.length; i++) {
             if (array[i - 1] > array[i]) {
                 result = false;
+                System.out.printf("Index/value %d/%d\n", i, array[i]);
                 break;
             }
         }
