@@ -60,10 +60,25 @@ public class Functions {
         return result;
     }
 
+
     public static int[] generate(int length) {
         int[] randomIntegersArray = new int[length];
         for (int i = 0; i < length; i++) {
             randomIntegersArray[i] = random.nextInt();
+        }
+        return randomIntegersArray;
+    }
+
+    public static int[] generate(int length, int rangeFrom, int rangeTo) {
+
+        if ((rangeTo - rangeFrom) < 2) {
+            throw new IllegalArgumentException("Range is too low.");
+        }
+        int[] randomIntegersArray = new int[length];
+
+        int range = rangeTo - rangeFrom;
+        for (int i = 0; i < length; i++) {
+            randomIntegersArray[i] = random.nextInt(range) + rangeFrom;
         }
         return randomIntegersArray;
     }
