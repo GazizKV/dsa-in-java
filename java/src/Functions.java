@@ -114,7 +114,7 @@ public class Functions {
         timeParamsForOutput
                 .append(name)
                 .append(" ")
-                .append("Sorted by - ")
+                .append("Sorted time - ")
                 .append(time)
                 .append(" millis")
                 .append(" ");
