@@ -23,6 +23,7 @@ public class Selection {
         Calendar timeEnd = Calendar.getInstance(); // Measure end time.
 
         Functions.printResult(name, integers, timeStart, timeEnd);
+
     }
 
 }
