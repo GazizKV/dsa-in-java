@@ -12,6 +12,9 @@ public class Main {
         int rangeTo = 1000000;
 
 
+        NativeJavaSort.sort(Functions.generate(LengthArrayForSorting));
+
+        Pyramid.sort(Functions.generate(LengthArrayForSorting));
 
         Merge.sort(Functions.generate(LengthArrayForSorting));
 

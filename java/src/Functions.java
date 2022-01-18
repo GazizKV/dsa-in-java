@@ -97,7 +97,7 @@ public class Functions {
             }
             string = nameBuilder.toString();
         } else if (string.length() > newLength) {
-            string = string.substring(0, newLength - 1);
+            string = string.substring(0, newLength);
         }
         return string;
     }
