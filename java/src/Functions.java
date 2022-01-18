@@ -5,6 +5,7 @@
 //  project: dsa-in-java
 
 import java.util.Calendar;
+import java.util.Map;
 import java.util.Random;
 
 public class Functions {
@@ -91,8 +92,14 @@ public class Functions {
             return "Length less or more than it must be";
         }
         if (string.length() < newLength) {
-            StringBuilder nameBuilder = new StringBuilder(string);
+            StringBuilder nameBuilder = new StringBuilder(string).append(" ");
+            String[] millis = "millis" .split("");
+            int i = 0;
             while (nameBuilder.length() < newLength) {
+                if (i < millis.length && string.matches("\\d+")) {
+                    nameBuilder.append(millis[i++]);
+                    continue;
+                }
                 nameBuilder.append("_");
             }
             string = nameBuilder.toString();
@@ -104,6 +111,8 @@ public class Functions {
 
     public static void printResult(String name, int[] integers, Calendar startTime, Calendar endTime) {
 
+        String check = checkSortedArray(integers)?"right":"wrong";
+
         name = setToLength(name, 10);
 
         long sortedTime = endTime.getTimeInMillis() - startTime.getTimeInMillis();
@@ -111,21 +120,52 @@ public class Functions {
         String time = setToLength(sortedTime + "", 10);
 
         StringBuilder timeParamsForOutput = new StringBuilder();
+
         timeParamsForOutput
                 .append(name)
                 .append(" ")
-                .append("Sorted time - ")
+                .append("Sorted ")
+                .append(check)
+                .append(" time - ")
                 .append(time)
-                .append(" millis")
                 .append(" ");
 
-        if (checkSortedArray(integers)) {
-            timeParamsForOutput
-                    .append("right");
-        } else {
-            timeParamsForOutput
-                    .append("wrong");
-        }
         System.out.println(timeParamsForOutput);
     }
+
+    public static void printResult(String name, int[] integers, Calendar startTime, Calendar endTime, Map<String, Integer> mapTime) {
+
+        String check = checkSortedArray(integers)?"right":"wrong";
+
+        name = setToLength(name, 10);
+
+        long sortedTime = endTime.getTimeInMillis() - startTime.getTimeInMillis();
+
+        String time = setToLength(sortedTime + "", 10);
+
+        StringBuilder timeParamsForOutput = new StringBuilder();
+
+        String averageString = setToLength((String.valueOf(mapTime.get("averageTime"))), 10);
+
+        timeParamsForOutput
+                .append(name)
+                .append(" ")
+                .append("Sorted ")
+                .append(check)
+                .append(" time - ")
+                .append(time)
+                .append(" ")
+                .append("average time - ")
+                .append(averageString)
+                .append(" ")
+                .append("Max - ")
+                .append(mapTime.get("maxTime"))
+                .append(" ")
+                .append("Min -")
+                .append(mapTime.get("minTime"));
+
+
+        System.out.println(timeParamsForOutput);
+    }
+
 }
