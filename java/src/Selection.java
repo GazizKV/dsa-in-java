@@ -3,27 +3,41 @@
 //  project: dsa-in-java
 
 import java.util.Calendar;
+import java.util.Map;
 
-public class Selection {
+public class Selection implements Sorting {
 
-    private static final String name = "Select";
+    private final SortingType type = SortingType.SELECTION;
+    private final String name = "Select";
 
-    public static void sort(int[] integers) {
+    private final Functions functions = new Functions();
+
+    public void sort(int[] integers) {
 
         Calendar timeStart = Calendar.getInstance(); // Measure start time.
 
-        // Sort
-        for (int i = 0; i < integers.length; i++) {
-            // Finding next min value into array integers.
-            int indexOfMinValueInSubArray = Functions.minVal(integers, i, integers.length);
-            // Swap values into integers array.
-            Functions.swapValues(integers, i, indexOfMinValueInSubArray);
-        }
+        innerSort(integers); // Sort
 
         Calendar timeEnd = Calendar.getInstance(); // Measure end time.
 
-        Functions.printResult(name, integers, timeStart, timeEnd);
+        Map<String, Integer> timeMap = functions.averageTimeSort(this);
+                                                // Measure average, max and min sorting time
+
+        functions.printResult(name, integers, timeStart, timeEnd, timeMap); // Print result
 
     }
 
+    @Override
+    public void innerSort(int[] integers) {
+        for (int i = 0; i < integers.length; i++) {
+
+            // Finding next min value into array integers.
+            int indexOfMinValueInSubArray = functions.minVal(integers, i, integers.length);
+
+
+            // Swap values into integers array.
+            functions.swapValues(integers, i, indexOfMinValueInSubArray);
+
+        }
+    }
 }

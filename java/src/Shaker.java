@@ -3,16 +3,31 @@
 //  project: dsa-in-java
 
 import java.util.Calendar;
+import java.util.Map;
 
-public class Shaker {
+public class Shaker implements Sorting {
 
-    private static final String name = "Shaker";
+    private final SortingType sortingType = SortingType.SHAKER;
+    private final String name = "Shaker";
 
-    public static void sort(int[] integers) {
+    private final Functions functions = new Functions();
+
+    public void sort(int[] integers) {
 
         Calendar timeStart = Calendar.getInstance(); // Measuring the start time.
 
-        // Sort
+        innerSort(integers); // Sort
+
+        Calendar timeEnd = Calendar.getInstance(); // Measuring the end time.
+
+        Map<String, Integer> timeMap = functions.averageTimeSort(this);
+                                                    // Measure average, max and min sorting time
+
+        functions.printResult(name, integers, timeStart, timeEnd, timeMap); // Print result
+    }
+
+    @Override
+    public void innerSort(int[] integers) {
         int num;
         boolean isSorted = false;
         int i;
@@ -35,9 +50,5 @@ public class Shaker {
                 }
             }
         }
-
-        Calendar timeEnd = Calendar.getInstance(); // Measuring the end time.
-
-        Functions.printResult(name, integers, timeStart, timeEnd);
     }
 }

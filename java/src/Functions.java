@@ -5,21 +5,22 @@
 //  project: dsa-in-java
 
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
 public class Functions {
 
-    private static final Random random = new Random();
+    private final Random random = new Random();
 
-    public static void swapValues(int[] array, int x, int y) {
+    public void swapValues(int[] array, int x, int y) {
         int swap;
         swap = array[y];
         array[y] = array[x];
         array[x] = swap;
     }
 
-    public static int minVal(int[] array, int from, int to) {
+    public int minVal(int[] array, int from, int to) {
         int result = Integer.MAX_VALUE;
         int resultIndex = 0;
         for (int i = from; i < to; i++) {
@@ -31,7 +32,7 @@ public class Functions {
         return resultIndex;
     }
 
-    public static void printArray(int[] array) {
+    public void printArray(int[] array) {
         int arrayLength = array.length;
         if (array.length < 51) {
             for (int j : array) {
@@ -51,7 +52,7 @@ public class Functions {
         }
     }
 
-    public static boolean checkSortedArray(int[] array) {
+    public boolean checkSortedArray(int[] array) {
         boolean result = true;
         for (int i = 1; i < array.length; i++) {
             if (array[i - 1] > array[i]) {
@@ -64,7 +65,10 @@ public class Functions {
     }
 
 
-    public static int[] generate(int length) {
+    public int[] generate() {
+
+        int length = Main.LENGTH;
+
         int[] randomIntegersArray = new int[length];
         for (int i = 0; i < length; i++) {
             randomIntegersArray[i] = random.nextInt();
@@ -72,7 +76,7 @@ public class Functions {
         return randomIntegersArray;
     }
 
-    public static int[] generate(int length, int rangeFrom, int rangeTo) {
+    public int[] generate(int length, int rangeFrom, int rangeTo) {
 
         if ((rangeTo - rangeFrom) < 2) {
             throw new IllegalArgumentException("Range is too low.");
@@ -86,7 +90,7 @@ public class Functions {
         return randomIntegersArray;
     }
 
-    private static String setToLength(String string, int newLength) {
+    private String setToLength(String string, int newLength) {
 
         if (newLength < 2 || newLength > 20) {
             return "Length less or more than it must be";
@@ -109,7 +113,7 @@ public class Functions {
         return string;
     }
 
-    public static void printResult(String name, int[] integers, Calendar startTime, Calendar endTime) {
+    public void printResult(String name, int[] integers, Calendar startTime, Calendar endTime) {
 
         String check = checkSortedArray(integers)?"right":"wrong";
 
@@ -133,7 +137,7 @@ public class Functions {
         System.out.println(timeParamsForOutput);
     }
 
-    public static void printResult(String name, int[] integers, Calendar startTime, Calendar endTime, Map<String, Integer> mapTime) {
+    public void printResult(String name, int[] integers, Calendar startTime, Calendar endTime, Map<String, Integer> mapTime) {
 
         String check = checkSortedArray(integers)?"right":"wrong";
 
@@ -167,5 +171,48 @@ public class Functions {
 
         System.out.println(timeParamsForOutput);
     }
+
+
+    public Map<String, Integer> averageTimeSort(Sorting sort) {
+
+        int times = Main.TIMES;
+
+        Map<String, Integer> timeMap = new HashMap<>();
+
+        int[] integers;
+
+        int time;
+
+        int sumOfSortedTimes = 0;
+
+        int maxTime = Integer.MIN_VALUE;
+
+        int minTime = Integer.MAX_VALUE;
+
+        for (int i = 0; i < times; i++) {
+            integers = generate();
+            Calendar timeStart = Calendar.getInstance(); // Measure start time.
+            sort.innerSort(integers); // Sort
+            Calendar timeEnd = Calendar.getInstance(); // Measure end time.
+            time = (int) (timeEnd.getTimeInMillis() - timeStart.getTimeInMillis());
+            if (maxTime < time) {
+                maxTime = time;
+            } else if (minTime > time) {
+                minTime = time;
+            }
+            sumOfSortedTimes += time;
+        }
+        timeMap.put("minTime", minTime);
+        timeMap.put("maxTime", maxTime);
+
+        timeMap.put("averageTime", sumOfSortedTimes / times);
+
+        return timeMap;
+
+    }
+//
+//    public Sorting getObject(SortingType type) {
+//        if(type.equals(SortingType.SELECTION)) return new Selection();
+//    }
 
 }

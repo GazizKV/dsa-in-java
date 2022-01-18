@@ -11,28 +11,34 @@ public class Main {
     public static void main(String[] args) {
 
 
-
-        int length = 100;
-        int rangeFrom = 0;
-        int rangeTo = 1000000;
+        Functions functions = new Functions();
 
 
-        NativeJavaSort.sort(Functions.generate(LENGTH));
+        NativeJavaSort nativeJavaSort = new NativeJavaSort();
+        nativeJavaSort.sort(functions.generate());
 
-        Pyramid.sort(Functions.generate(LENGTH));
+        Pyramid pyramid = new Pyramid();
+        pyramid.sort(functions.generate());
 
-        Merge.sort(Functions.generate(LENGTH));
+        Merge merge = new Merge();
+        merge.sort(functions.generate());
 
-        Quick.sort(Functions.generate(LENGTH));
+        Quick quick = new Quick();
+        quick.sort(functions.generate());
 
-        Selection.sort(Functions.generate(LENGTH));
+        Selection selection = new Selection();
+        selection.sort(functions.generate());
 
-        Insertion.sort(Functions.generate(LENGTH));
+        Insertion insertion = new Insertion();
+        insertion.sort(functions.generate());
 
-        Comb.sort(Functions.generate(LENGTH));
+        Comb comb = new Comb();
+        comb.sort(functions.generate());
 
-        Shaker.sort(Functions.generate(LENGTH));
+        Shaker shaker = new Shaker();
+        shaker.sort(functions.generate());
 
-        Bubble.sort(Functions.generate(LENGTH));
+        Bubble bubble = new Bubble();
+        bubble.sort(functions.generate());
     }
 }

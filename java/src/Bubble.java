@@ -3,25 +3,30 @@
 //  project: dsa-in-java
 
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.Map;
 
-public class Bubble {
+public class Bubble implements Sorting {
 
-    private static final String name = "Bubble";
+    private final SortingType type = SortingType.BUBBLE;
 
-    public static void sort(int[] integers) {
+    private final Functions functions = new Functions();
+
+    private final String NAME = "Bubble";
+
+    public void sort(int[] integers) {
 
         Calendar timeStart = Calendar.getInstance(); // Measure start time.
-        innerSort(integers);
+        innerSort(integers); // Sort
         Calendar timeEnd = Calendar.getInstance(); // Measure end time.
 
-        Map<String, Integer> mapTime = averageTimeSort(Main.TIMES);
+        Map<String, Integer> mapTime = functions.averageTimeSort(this);
+                                                // Measure average, min and max sorting time
 
-        Functions.printResult(name, integers, timeStart, timeEnd, mapTime);
+        functions.printResult(NAME, integers, timeStart, timeEnd, mapTime); // Print result
     }
 
-    private static void innerSort(int[] integers) {
+    @Override
+    public void innerSort(int[] integers) {
 
         int num;
 
@@ -44,39 +49,4 @@ public class Bubble {
 
     }
 
-    private static Map<String, Integer> averageTimeSort(int times) {
-
-        Map<String, Integer> timeMap = new HashMap<>();
-
-        int[] integers;
-
-        int time;
-
-        int sumOfSortedTimes = 0;
-
-        int maxTime = Integer.MIN_VALUE;
-
-        int minTime = Integer.MAX_VALUE;
-
-        for (int i = 0; i < times; i++) {
-            integers = Functions.generate(Main.LENGTH);
-            Calendar timeStart = Calendar.getInstance(); // Measure start time.
-            innerSort(integers);
-            Calendar timeEnd = Calendar.getInstance(); // Measure end time.
-            time = (int) (timeEnd.getTimeInMillis() - timeStart.getTimeInMillis());
-            if (maxTime < time) {
-                maxTime = time;
-            } else if (minTime > time) {
-                minTime = time;
-            }
-            sumOfSortedTimes += time;
-        }
-        timeMap.put("minTime", minTime);
-        timeMap.put("maxTime", maxTime);
-
-        timeMap.put("averageTime", sumOfSortedTimes / times);
-
-        return timeMap;
-
-    }
 }

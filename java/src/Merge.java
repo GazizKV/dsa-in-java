@@ -4,12 +4,18 @@
 
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Map;
 
-public class Merge {
+public class Merge implements Sorting {
 
-    private static final String name = "Merge";
+    private final SortingType type = SortingType.MERGE;
 
-    private static void sortImpl(int[] integers, int[] arrayBuffer, int leftIndex, int rightIndex) {
+    private final String name = "Merge";
+
+    private final Functions functions = new Functions();
+
+
+    private void sortImpl(int[] integers, int[] arrayBuffer, int leftIndex, int rightIndex) {
         if (leftIndex < rightIndex) {
             int middle = (leftIndex + rightIndex) / 2;
             sortImpl(integers, arrayBuffer, leftIndex, middle);
@@ -34,7 +40,7 @@ public class Merge {
         }
     }
 
-    public static void sort(int[] integers) {
+    public void sort(int[] integers) {
 
         if (integers.length > 1) {
 
@@ -47,11 +53,18 @@ public class Merge {
 
             Calendar timeEnd = Calendar.getInstance(); // Measure end time.
 
-            Functions.printResult(name, integers, timeStart, timeEnd);
+            Map<String, Integer> timeMap = functions.averageTimeSort(this);
+                        // Measure average, max and min value of sort time
 
+            functions.printResult(name, integers, timeStart, timeEnd, timeMap); // Print result
 
         } else {
             System.out.println("Array size is less than 2 or empty");
         }
+    }
+
+    @Override
+    public void innerSort(int[] integers) {
+        sort(integers);
     }
 }

@@ -3,36 +3,58 @@
 //  project: dsa-in-java
 
 import java.util.Calendar;
+import java.util.Map;
 
-public class Comb {
+public class Comb implements Sorting {
 
-    private static final String NAME = "Comb";
+    private final SortingType type = SortingType.COMB;
 
-    private static final double FACTOR = 1.247;
+    private final String NAME = "Comb";
 
-    public static void sort(int[] integers) {
+    private final double FACTOR = 1.247;
+
+    private final Functions functions = new Functions();
+
+
+    public void sort(int[] integers) {
+
+        Calendar timeStart = Calendar.getInstance(); // Measure start time.
+
+        innerSort(integers); // Sort
+
+        Calendar timeEnd = Calendar.getInstance(); // Measure end time.
+
+
+        Map<String, Integer> mapTime = functions.averageTimeSort(this);
+                                        // Measure average, min and max sorting time
+
+        functions.printResult(NAME, integers, timeStart, timeEnd, mapTime); // Print result
+
+    }
+
+    public void innerSort(int[] integers) {
 
         int step = (int) (integers.length / FACTOR);
 
         boolean isSorted = false;
 
-        Calendar timeStart = Calendar.getInstance(); // Measure start time.
-
         while (!isSorted) {
+
             isSorted = true;
+
             for (int i = 0; i + step < integers.length; ++i) {
                 if (integers[i] > integers[i + step]) {
-                    Functions.swapValues(integers, i, i + step);
+                    functions.swapValues(integers, i, i + step);
                     isSorted = false;
                 }
             }
+
             step = (int) (step / FACTOR);
+
             if (step <= 1) step = 1;
+
         }
 
-        Calendar timeEnd = Calendar.getInstance(); // Measure end time.
-
-        Functions.printResult(NAME, integers, timeStart, timeEnd);
-
     }
+
 }
