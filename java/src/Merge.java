@@ -46,15 +46,16 @@ public class Merge implements Sorting {
 
             int[] bufferArray = new int[integers.length];
 
-
             Calendar timeStart = Calendar.getInstance(); // Measure start time.
 
             sortImpl(integers, bufferArray, 0, integers.length - 1); // Sort
 
             Calendar timeEnd = Calendar.getInstance(); // Measure end time.
 
-            System.out.println("Can not measure average time sort, because of stackOverFlow(recursion).");
-            functions.printResult(name, integers, timeStart, timeEnd); // Print result
+            Map<String, Integer> timeMap = functions.averageTimeSort(this);
+                                                // Measure average, max and min sorting time
+
+            functions.printResult(name, integers, timeStart, timeEnd, timeMap); // print result
 
         } else {
             System.out.println("Array size is less than 2 or empty");
@@ -63,6 +64,7 @@ public class Merge implements Sorting {
 
     @Override
     public void innerSort(int[] integers) {
-        sort(integers);
+        int[] bufferArray = new int[integers.length];
+        sortImpl(integers, bufferArray, 0, integers.length - 1);
     }
 }
