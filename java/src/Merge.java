@@ -53,10 +53,8 @@ public class Merge implements Sorting {
 
             Calendar timeEnd = Calendar.getInstance(); // Measure end time.
 
-            Map<String, Integer> timeMap = functions.averageTimeSort(this);
-                        // Measure average, max and min value of sort time
-
-            functions.printResult(name, integers, timeStart, timeEnd, timeMap); // Print result
+            System.out.println("Can not measure average time sort, because of stackOverFlow(recursion).");
+            functions.printResult(name, integers, timeStart, timeEnd); // Print result
 
         } else {
             System.out.println("Array size is less than 2 or empty");

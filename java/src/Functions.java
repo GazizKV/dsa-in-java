@@ -159,13 +159,13 @@ public class Functions {
                 .append(" time - ")
                 .append(time)
                 .append(" ")
-                .append("average time - ")
+                .append("average = ")
                 .append(averageString)
                 .append(" ")
-                .append("Max - ")
+                .append("Max = ")
                 .append(mapTime.get("maxTime"))
                 .append(" ")
-                .append("Min -")
+                .append("Min = ")
                 .append(mapTime.get("minTime"));
 
 
@@ -179,8 +179,6 @@ public class Functions {
 
         Map<String, Integer> timeMap = new HashMap<>();
 
-        int[] integers;
-
         int time;
 
         int sumOfSortedTimes = 0;
@@ -190,9 +188,8 @@ public class Functions {
         int minTime = Integer.MAX_VALUE;
 
         for (int i = 0; i < times; i++) {
-            integers = generate();
             Calendar timeStart = Calendar.getInstance(); // Measure start time.
-            sort.innerSort(integers); // Sort
+            sort.innerSort(generate()); // Sort
             Calendar timeEnd = Calendar.getInstance(); // Measure end time.
             time = (int) (timeEnd.getTimeInMillis() - timeStart.getTimeInMillis());
             if (maxTime < time) {
@@ -202,6 +199,7 @@ public class Functions {
             }
             sumOfSortedTimes += time;
         }
+
         timeMap.put("minTime", minTime);
         timeMap.put("maxTime", maxTime);
 
@@ -210,9 +208,5 @@ public class Functions {
         return timeMap;
 
     }
-//
-//    public Sorting getObject(SortingType type) {
-//        if(type.equals(SortingType.SELECTION)) return new Selection();
-//    }
 
 }

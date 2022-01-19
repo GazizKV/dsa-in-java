@@ -31,6 +31,6 @@ public class NativeJavaSort implements Sorting {
 
     @Override
     public void innerSort(int[] integers) {
-        int[] sorted = Arrays.stream(integers).sorted().toArray();
+        Arrays.sort(integers);
     }
 }
