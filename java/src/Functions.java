@@ -4,10 +4,7 @@
 //  date:    12.01.2022
 //  project: dsa-in-java
 
-import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class Functions {
 
@@ -38,7 +35,9 @@ public class Functions {
             for (int j : array) {
                 System.out.print(j + " ");
             }
-            System.out.println("\nArray length equal to " + array.length);
+            System.out.println("\nArray length equal to " + array.length +
+                    ", numbers in range between " + Arrays.stream(array).min().getAsInt() +
+                    " and " + Arrays.stream(array).max().getAsInt());
         } else {
             for (int i = 0; i < 10; i++) {
                 System.out.print(array[i] + " ");

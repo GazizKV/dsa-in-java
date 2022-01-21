@@ -4,7 +4,7 @@
 
 public class Main {
 
-    public static int LENGTH = 10000;
+    public static int LENGTH = 100000;
 
     public static int TIMES = 10;
 
@@ -13,17 +13,17 @@ public class Main {
 
         Functions functions = new Functions();
 
-        NativeJavaSort nativeJavaSort = new NativeJavaSort();
-        nativeJavaSort.sort(functions.generate());
+//        NativeJavaSort nativeJavaSort = new NativeJavaSort();
+//        nativeJavaSort.sort(functions.generate());
 
         Pyramid pyramid = new Pyramid();
         pyramid.sort(functions.generate());
 
-        Merge merge = new Merge();
-        merge.sort(functions.generate());
+//        Merge merge = new Merge();
+//        merge.sort(functions.generate());
 
-        Quick quick = new Quick();
-        quick.sort(functions.generate());
+//        Quick quick = new Quick();
+//        quick.sort(functions.generate());
 
 //        Selection selection = new Selection();
 //        selection.sort(functions.generate());
@@ -31,8 +31,8 @@ public class Main {
 //        Insertion insertion = new Insertion();
 //        insertion.sor t(functions.generate());
 
-        Comb comb = new Comb();
-        comb.sort(functions.generate());
+//        Comb comb = new Comb();
+//        comb.sort(functions.generate());
 
 //        Shaker shaker = new Shaker();
 //        shaker.sort(functions.generate());
