@@ -27,7 +27,7 @@ public class Shaker implements Sorting {
     }
 
     @Override
-    public void innerSort(int[] integers) {
+    public int[] innerSort(int[] integers) {
         int num;
         boolean isSorted = false;
         int i;
@@ -50,5 +50,8 @@ public class Shaker implements Sorting {
                 }
             }
         }
+
+        return integers;
+
     }
 }

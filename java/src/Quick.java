@@ -30,10 +30,13 @@ public class Quick implements Sorting {
     }
 
     @Override
-    public void innerSort(int[] array) {
+    public int[] innerSort(int[] array) {
         if (array.length > 1) {
             quickSortImpl(array, 0, array.length - 1);
         }
+
+        return array;
+
     }
 
 

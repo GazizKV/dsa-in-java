@@ -32,7 +32,7 @@ public class Comb implements Sorting {
 
     }
 
-    public void innerSort(int[] integers) {
+    public int[] innerSort(int[] integers) {
 
         int step = (int) (integers.length / FACTOR);
 
@@ -54,6 +54,8 @@ public class Comb implements Sorting {
             if (step <= 1) step = 1;
 
         }
+
+        return integers;
 
     }
 

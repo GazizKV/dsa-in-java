@@ -27,7 +27,7 @@ public class Pyramid implements Sorting {
     }
 
     @Override
-    public void innerSort(int[] integers) {
+    public int[] innerSort(int[] integers) {
 
         int length = integers.length;
 
@@ -42,6 +42,7 @@ public class Pyramid implements Sorting {
             heapify(integers, i, 0);
         }
 
+        return integers;
 
     }
 

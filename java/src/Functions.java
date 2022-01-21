@@ -96,14 +96,14 @@ public class Functions {
         }
         if (string.length() < newLength) {
             StringBuilder nameBuilder = new StringBuilder(string).append(" ");
-            String[] millis = "millis" .split("");
+            String[] millis = "m" .split("");
             int i = 0;
             while (nameBuilder.length() < newLength) {
                 if (i < millis.length && string.matches("\\d+")) {
                     nameBuilder.append(millis[i++]);
                     continue;
                 }
-                nameBuilder.append("_");
+                nameBuilder.append(" ");
             }
             string = nameBuilder.toString();
         } else if (string.length() > newLength) {
@@ -165,7 +165,9 @@ public class Functions {
                 .append(setToLength(String.valueOf(mapTime.get("maxTime")), 10))
                 .append(" ")
                 .append("Min = ")
-                .append(setToLength(String.valueOf(mapTime.get("minTime")), 10));
+                .append(setToLength(String.valueOf(mapTime.get("minTime")), 10))
+                .append(" wrongTimes = ")
+                .append(mapTime.get("wrongTimes"));
 
 
         System.out.println(timeParamsForOutput);
@@ -186,10 +188,16 @@ public class Functions {
 
         int minTime = Integer.MAX_VALUE;
 
+        int wrong = 0;
+
         for (int i = 0; i < times; i++) {
+
             Calendar timeStart = Calendar.getInstance(); // Measure start time.
-            sort.innerSort(generate()); // Sort
+            int[] integers = sort.innerSort(generate());// Sort
             Calendar timeEnd = Calendar.getInstance(); // Measure end time.
+
+            if(!checkSortedArray(integers)) ++wrong;
+
             time = (int) (timeEnd.getTimeInMillis() - timeStart.getTimeInMillis());
             if (maxTime < time) {
                 maxTime = time;
@@ -197,12 +205,15 @@ public class Functions {
                 minTime = time;
             }
             sumOfSortedTimes += time;
+
         }
 
         timeMap.put("minTime", minTime);
         timeMap.put("maxTime", maxTime);
 
         timeMap.put("averageTime", sumOfSortedTimes / times);
+
+        timeMap.put("wrongTimes", wrong);
 
         return timeMap;
 

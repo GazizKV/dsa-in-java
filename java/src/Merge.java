@@ -63,8 +63,11 @@ public class Merge implements Sorting {
     }
 
     @Override
-    public void innerSort(int[] integers) {
+    public int[] innerSort(int[] integers) {
         int[] bufferArray = new int[integers.length];
         sortImpl(integers, bufferArray, 0, integers.length - 1);
+
+        return integers;
+
     }
 }

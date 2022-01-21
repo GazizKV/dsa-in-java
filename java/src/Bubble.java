@@ -26,7 +26,7 @@ public class Bubble implements Sorting {
     }
 
     @Override
-    public void innerSort(int[] integers) {
+    public int[] innerSort(int[] integers) {
 
         int num;
 
@@ -38,15 +38,14 @@ public class Bubble implements Sorting {
 
             for (int i = 0; i < integers.length - 1; i++) {
                 if (integers[i] > integers[i + 1]) {
-                    num = integers[i];
-                    integers[i] = integers[i + 1];
-                    integers[i + 1] = num;
+                    functions.swapValues(integers, i, i + 1);
                     isSorted = false;
                 }
             }
 
         }
 
+        return integers;
     }
 
 }

@@ -30,7 +30,10 @@ public class NativeJavaSort implements Sorting {
     }
 
     @Override
-    public void innerSort(int[] integers) {
+    public int[] innerSort(int[] integers) {
+
         Arrays.sort(integers);
+
+        return integers;
     }
 }

@@ -28,7 +28,7 @@ public class Selection implements Sorting {
     }
 
     @Override
-    public void innerSort(int[] integers) {
+    public int[] innerSort(int[] integers) {
         for (int i = 0; i < integers.length; i++) {
 
             // Finding next min value into array integers.
@@ -39,5 +39,8 @@ public class Selection implements Sorting {
             functions.swapValues(integers, i, indexOfMinValueInSubArray);
 
         }
+
+        return integers;
+
     }
 }

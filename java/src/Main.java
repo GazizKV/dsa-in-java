@@ -13,32 +13,32 @@ public class Main {
 
         Functions functions = new Functions();
 
-//        NativeJavaSort nativeJavaSort = new NativeJavaSort();
-//        nativeJavaSort.sort(functions.generate());
+        NativeJavaSort nativeJavaSort = new NativeJavaSort();
+        nativeJavaSort.sort(functions.generate());
 
         Pyramid pyramid = new Pyramid();
         pyramid.sort(functions.generate());
 
-//        Merge merge = new Merge();
-//        merge.sort(functions.generate());
+        Merge merge = new Merge();
+        merge.sort(functions.generate());
 
-//        Quick quick = new Quick();
-//        quick.sort(functions.generate());
+        Quick quick = new Quick();
+        quick.sort(functions.generate());
 
-//        Selection selection = new Selection();
-//        selection.sort(functions.generate());
-//
-//        Insertion insertion = new Insertion();
-//        insertion.sor t(functions.generate());
+        Selection selection = new Selection();
+        selection.sort(functions.generate());
 
-//        Comb comb = new Comb();
-//        comb.sort(functions.generate());
+        Insertion insertion = new Insertion();
+        insertion.sort(functions.generate());
 
-//        Shaker shaker = new Shaker();
-//        shaker.sort(functions.generate());
-//
-//        Bubble bubble = new Bubble();
-//        bubble.sort(functions.generate());
+        Comb comb = new Comb();
+        comb.sort(functions.generate());
+
+        Shaker shaker = new Shaker();
+        shaker.sort(functions.generate());
+
+        Bubble bubble = new Bubble();
+        bubble.sort(functions.generate());
 
     }
 

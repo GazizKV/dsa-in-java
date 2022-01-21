@@ -3,5 +3,5 @@
 //  project: dsa-in-java
 
 public interface Sorting {
-    void innerSort(int[] integers);
+    int[] innerSort(int[] integers);
 }

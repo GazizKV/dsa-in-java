@@ -32,7 +32,7 @@ public class Insertion implements Sorting {
     }
 
     @Override
-    public void innerSort(int[] integers) {
+    public int[] innerSort(int[] integers) {
         for (int i = 1; i < integers.length; i++) {
             int x = integers[i];
             int j = i;
@@ -42,5 +42,8 @@ public class Insertion implements Sorting {
             }
             integers[j] = x;
         }
+
+        return integers;
+
     }
 }
