@@ -163,10 +163,10 @@ public class Functions {
                 .append(averageString)
                 .append(" ")
                 .append("Max = ")
-                .append(mapTime.get("maxTime"))
+                .append(setToLength(String.valueOf(mapTime.get("maxTime")), 10))
                 .append(" ")
                 .append("Min = ")
-                .append(mapTime.get("minTime"));
+                .append(setToLength(String.valueOf(mapTime.get("minTime")), 10));
 
 
         System.out.println(timeParamsForOutput);

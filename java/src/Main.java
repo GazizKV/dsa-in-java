@@ -6,13 +6,12 @@ public class Main {
 
     public static int LENGTH = 10000;
 
-    public static int TIMES = 100;
+    public static int TIMES = 10;
 
     public static void main(String[] args) {
 
 
         Functions functions = new Functions();
-
 
         NativeJavaSort nativeJavaSort = new NativeJavaSort();
         nativeJavaSort.sort(functions.generate());
@@ -26,19 +25,21 @@ public class Main {
         Quick quick = new Quick();
         quick.sort(functions.generate());
 
-        Selection selection = new Selection();
-        selection.sort(functions.generate());
-
-        Insertion insertion = new Insertion();
-        insertion.sort(functions.generate());
+//        Selection selection = new Selection();
+//        selection.sort(functions.generate());
+//
+//        Insertion insertion = new Insertion();
+//        insertion.sor t(functions.generate());
 
         Comb comb = new Comb();
         comb.sort(functions.generate());
 
-        Shaker shaker = new Shaker();
-        shaker.sort(functions.generate());
+//        Shaker shaker = new Shaker();
+//        shaker.sort(functions.generate());
+//
+//        Bubble bubble = new Bubble();
+//        bubble.sort(functions.generate());
 
-        Bubble bubble = new Bubble();
-        bubble.sort(functions.generate());
     }
+
 }
