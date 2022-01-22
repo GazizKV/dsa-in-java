@@ -53,11 +53,11 @@ public class Pyramid implements Sorting {
         int left = 2 * i + 1;
         int right = 2 * i + 2;
 
-        if(left < length && integers[left] > integers[largest]) largest = left;
+        if (left < length && integers[left] > integers[largest]) largest = left;
 
-        if(right < length && integers[right] > integers[largest]) largest = right;
+        if (right < length && integers[right] > integers[largest]) largest = right;
 
-        if(largest != i) {
+        if (largest != i) {
 
             functions.swapValues(integers, i, largest);
 

@@ -140,8 +140,6 @@ public class Functions {
 
         String check = checkSortedArray(integers)?"right":"wrong";
 
-        name = setToLength(name, 10);
-
         long sortedTime = endTime.getTimeInMillis() - startTime.getTimeInMillis();
 
         String time = setToLength(sortedTime + "", 10);
@@ -151,11 +149,11 @@ public class Functions {
         String averageString = setToLength((String.valueOf(mapTime.get("averageTime"))), 10);
 
         timeParamsForOutput
-                .append(name)
+                .append(setToLength(name, 15))
                 .append(" ")
                 .append("Sorted ")
-                .append(check)
-                .append(" time - ")
+                .append(setToLength(check, 10))
+                .append(" time = ")
                 .append(time)
                 .append(" ")
                 .append("average = ")
