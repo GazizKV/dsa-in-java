@@ -8,6 +8,8 @@ public class Main {
 
     public static int TIMES = 10;
 
+    public static int THREADS = 5;
+
     public static void main(String[] args) {
 
 
